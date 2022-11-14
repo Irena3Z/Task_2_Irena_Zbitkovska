@@ -33,12 +33,13 @@ header{
     }
 }
 
-.navbar{
-    overflow: hidden;
+.navbar {
+    display: flex;
+    align-items: center;
 }
 
 .navbar a{
-    display: inline-block;
+    display:inline;
     height: 45px;
     left: 856px;
     padding-top: 21px;
@@ -62,30 +63,64 @@ header{
     margin-bottom: 3px;
 }
 
-.navbar a:hover,
-.navbar_lang a:hover{
+.navbar a:focus,
+.navbar_lang a:focus{
     font-weight: bold;
 }
 
 .navbar a:hover::after,
-.navbar_lang a:hover::after{
+.navbar_lang:hover::after{
     width: 100%;
     transition: all;
 }
 
-.navbar_lang a{
+.navbar_lang {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
     line-height: 22px;
     text-decoration: none;
-    padding-left: 0px;
+    padding-left: 2rem;
+    align-items: center;
+    cursor: pointer;
+
+}
+.lang_options{
+    display: none;
+}
+.navbar_lang:hover {
+    padding-top: 170px;
+
+}
+.lang_menu ul{
+    margin: 0;
+    padding: 5px;
+    background-color: #FFFFFF;
+    border: 1px solid #f8f8f8;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    display: none;
+}
+.lang_menu ul li {
+    list-style: none;
+}
+.lang_menu ul li a{
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
 }
 
+.lang_menu ul li a:hover{
+    font-weight: bold;
+}
+
+.lang_menu:hover ul{
+    padding-top: 40px;
+    display: block;
+}
 .stripe img{
-    max-width: 1366px;
-    width: 100%;
+    width: 1366px;
     height:92px;
     position: absolute;
     top:35px;
@@ -153,7 +188,8 @@ header{
     z-index:-1;
     top:-40px;
     position: relative;
-    max-width: 1366px;
+    width: 1366px;
+
     height: auto;
     padding: 0;
     margin: 0;
@@ -248,7 +284,7 @@ h3{
 form{
     display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 90%;
         max-width:612px; 
 }
 
@@ -523,6 +559,9 @@ span{
     .stripe img{
         width: 99%;
     }
+    .gallery{
+        width: 100%;
+    }
 
     .support{
         position: relative;
@@ -534,7 +573,7 @@ span{
     .support_logo {
         display: flex;
         align-items: center;
-        justify-content: center;   
+        justify-content: space-between;   
     }
 
     .support_logo img {
@@ -568,8 +607,8 @@ span{
 @media (max-width:991px){
     .navbar a,
     .navbar_lang a{
-        font-size: 1.27vw;
-        padding: 5px;
+        font-size: 1.3vw;
+        padding:20px 5px 0;
     }
 
     .support{
@@ -580,8 +619,8 @@ span{
     }  
 
     .support_logo img {
-        width:20%;
-        padding: 5px;   
+        width:25%;
+
     }
 
     .support_logo img:last-child{
@@ -599,10 +638,40 @@ span{
 }
 
 @media (max-width:768px){
+    .navbar{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .lang_options{
+        display: block;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .lang_options a{
+        padding: 10px 5px;
+    }
+
+    .lang_menu a{
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+    }
+
     .navbar a,
     .navbar_lang a{
         font-size: 1rem;
         padding: 5px;
+    }
+
+    .lang_menu {
+        display:none;
+    }
+
+    .navbar_lang a{
+        display: none;
     }
 
     #menu-btn{
@@ -636,24 +705,43 @@ span{
         text-align: center;
         align-items: flex-start;
         justify-content: center;
-        width: 100%;
-        height: 439px;
+        max-height: 280px;
+    
     }
 
     .about{
         padding-top: 150px;
         max-width: 654px;
         max-height: 114px;
+        padding: 120px 10px  10px ;
     }
 
     .about h4{
         font-family: 'Montserrat';
         font-style: normal;
         font-weight: 400;
-        font-size: 1rem;
+        font-size: 12px;
         line-height: 22px;
         text-align: center;
         color: #2F4858;
+    }
+
+    .gallery{
+        display: grid;
+        grid-template-columns: auto auto auto auto ;
+    }
+
+    .gallery img{
+        max-width: 240px;
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        display: flex;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column;
     }
 
     .contact{
@@ -679,6 +767,10 @@ span{
 
     button{
         margin-top: 20px;
+    }
+
+    .input_group{
+        width: 100%;
     }
 
     textarea{
@@ -783,16 +875,22 @@ span{
         text-align: center;
         color: #2F4858;
     }
+    .gallery{
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        padding: 0;
+    }
 
     .row {
         display: flex;
-        align-items: stretch;
-        justify-content: space-between;
         flex-direction: column;
     }
 
+
     .support_logo{
         display: flex;
+        justify-content: space-around;
+        align-items: center;
         flex-wrap: wrap;
     }
 
